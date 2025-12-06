@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+import funcs
 
 mainWindow = Tk()
 width = 700
@@ -29,11 +30,12 @@ buttons = []
 
 for i in range(1, 5):
     btn = Button(width=50, height=1, font=("Comic Sans MS", 14))
+    btn.config(command=lambda b=btn: funcs.choise(b, QUEST, buttons, info))
     btn.place(anchor="center", relx=0.5, rely=0.25+0.15*i)
     buttons.append(btn)
 
 
-
+funcs.generate_quest(QUEST, buttons)
 
 
 
